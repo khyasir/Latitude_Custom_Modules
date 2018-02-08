@@ -1,0 +1,26 @@
+<openerp>
+    <data>
+
+        <menuitem
+                id="ecube_bio_raw_attendance"
+                name="Raw Attendance"
+                parent="hr_attendance.menu_hr_attendance"
+                action="action_ecube_bio_raw_attendance"
+                sequence="1000"
+                />
+        <menuitem
+                id="ecube_bio_machine"
+                name="Bio Machines"
+                parent="hr_attendance.menu_hr_attendance"
+                action="action_ecube_bio_machine"
+                sequence="1001"
+                />
+        <menuitem
+                id="ecube_bio_machine_attendence_error"
+                name="Machines Attendance Error"
+                parent="hr_attendance.menu_hr_attendance"
+                action="bio_machine_attendence_error"
+                sequence="1002"
+                />
+    </data>
+</openerp>

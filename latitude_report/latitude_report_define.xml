@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <report
+            id="latitude_account_form_report" 
+            model="account.invoice" 
+            name="latitude_report.latitude_report" 
+            file="latitude_report.latitude_report"
+            report_type="qweb-pdf"
+            string="Latitude invoice"/> 
+    </data>
+</openerp>

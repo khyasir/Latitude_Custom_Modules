@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <template id="latitude_report">
+            <t t-name="account.report_invoice_document">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                              <div class="row">
+                                <img id="first_img" src="/latitude_report/static/img/latitude_transp_BG.png" style="width:260px;margin-left: 45px"/>
+                                <img id="second_img" src="/latitude_report/static/img/grayling_affiliate_logo.jpg" style="margin-left:300px; width: 285px"/>
+                              </div>
+                          <h2 id="heading_1" style="margin-left: 320px; margin-top: 20px;">
+                            <span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Invoice</span>
+                            <span t-if="o.type == 'out_invoice' and o.state == 'proforma2'">PRO-FORMA</span>
+                            <span t-if="o.type == 'out_invoice' and o.state == 'draft'">
+                              <em/>
+                              <em> Sale Tax Invoice</em>
+                              <em>
+                                <strong> </strong>
+                              </em>
+                            </span>
+                            <span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
+                            <span t-if="o.type == 'out_refund'">Refund</span>
+                            <span t-if="o.type == 'in_refund'">Supplier Refund</span>
+                            <span t-if="o.type == 'in_invoice'">Supplier Invoice</span>
+                            <span t-field="o.number"/>
+                          </h2>
+                          <!--<div>-->
+                          <!--    <address t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>-->
+                          <!--              <span t-if="o.partner_id.vat">TIN: <span t-field="o.partner_id.vat"/></span>-->
+                          <!--</div>-->
+                          <div class="row mt32 mb32" style="padding-left: 89px;">
+                            <div class="col-xs-2">
+                              <div id="detail_1">
+                                <strong>Description:</strong>
+                              </div>
+                              <div id="detail_2" style="padding-top: 10px;width: 115px;">
+                                <strong>Supplier's Name:</strong>
+                              </div>
+                              <div id="detail_2" style="padding-top: 10px;">
+                                <strong>Address:</strong>
+                              </div>
+                              <div style="margin-top: 2px;">
+                                <div id="detail_2" style="padding-top: 10px;">
+                                    <strong>NTN#</strong>
+                                </div>
+                                <div id="detail_2" style="padding-top: 10px;">
+                                    <strong>PNTN#</strong>
+                                </div>
+                                <div id="detail_2" style="padding-top: 10px;">
+                                    <strong>Term of Sales:</strong>
+                                 </div>
+                              </div>
+                            </div>
+                            <div class="col-xs-2" style="margin-top: -4px;">
+                              <div id="detail_3">
+                                <p t-field="o.name"/>
+                              </div>
+                              
+                              <div id="detail_5" style="width: 235px;">
+                                <p>LATITUDE (PVT) LIMITED</p>
+                              </div>
+                              <div id="detail_4" style="padding-top: 1px; width: 235px;">
+                                <p>11-F-2 MAIN GULBERG, LAHORE</p>
+                              </div>
+                              <div id="detail_3">
+                                <p>3653254-1</p>
+                              </div>
+                              <div id="detail_4" style="padding-top: 1px;">
+                                <p>P3653254-1</p>
+                              </div>
+                              <div id="detail_4" style="padding-top: 0px;">
+                                <p>Cash/Credit</p>
+                              </div>
+                            </div>
+                            <div class="col-xs-2" style="width: 40.666667%;">
+                              <div id="detail_2" style="padding-top: 0px;margin-left: 159px;margin-top: -6px;">
+                                <strong>Invoice Date:</strong>
+                              </div>
+                              <div id="detail_5" style="margin-left: 160px;margin-top: 9px;">
+                                <strong>Buyer's Name: </strong>
+                              </div>
+                              <div id="detail_5" style="margin-left: 160px;margin-top: 9px;">
+                                <strong>NTN#</strong>
+                              </div>
+                              <div id="detail_5" style="margin-left: 160px;margin-top: 9px;">
+                                <strong>PNTN#</strong>
+                              </div>
+                              <div id="detail_5" style="margin-left: 160px;margin-top: 9px;">
+                                <strong>CNIC#</strong>
+                              </div>
+                              <div id="detail_5" style="margin-left: 160px;margin-top: 9px;">
+                                <strong>Source:</strong>
+                              </div>
+                              <!--<div id="detail_6" style="margin-left: 160px;margin-top: 9px;">-->
+                              <!--  <strong>Customer Code:</strong>-->
+                              <!--</div>-->
+                              <div id="detail_5" style="margin-left: 160px;margin-top: 9px;">
+                                <strong>Address:</strong>
+                              </div>
+                            </div>
+                            <div class="col-xs-2" style="margin-top: -8px;margin-left: -60px;width :240px">
+                              <div id="detail_4" style="padding-top: 1px;">
+                                <p t-field="o.date_invoice"/>
+                              </div>
+                              <div id="detail_4" style="padding-top: 1px;">
+                                <address t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [ &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                              </div>
+                              
+                              <div id="detail_7" style="margin-top: 9px;">
+                                <p t-field="o.origin"/>
+                              </div>
+                              <!--<div id="detail_8">-->
+                              <!--  <p t-field="o.partner_id.ref"/>-->
+                              <!--</div>-->
+                              <div id="detail_7" style="margin-top: 9px;">
+                                <address t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/> 
+                              </div>
+                            </div>
+                            <!--<div class="col-xs-2" t-if="o.reference">-->
+                            <!--  <strong>Reference:</strong>-->
+                            <!--  <p t-field="o.reference"/>-->
+                            <!--</div>-->
+                          </div>
+                          <table class="table table-condensed">
+                            <thead>
+                              <tr>
+                                <th>Qty</th>
+                                <th>Description</th>
+                                <th class="text-right">Unit Price</th>
+                                <th class="text-right">Taxes</th>
+                                <th class="text-right">Amount</th>
+                              </tr>
+                            </thead>
+                            <tbody class="invoice_tbody">
+                              <tr t-foreach="o.invoice_line" t-as="l">
+                                <td>
+                                  <span t-field="l.quantity"/>
+                                  <span t-field="l.uos_id" groups="product.group_uom"/>
+                                </td>
+                                <td>
+                                  <span t-field="l.name"/>
+                                </td>
+                                <td class="text-right">
+                                  <span t-field="l.price_unit"/>
+                                </td>
+                                <td class="text-right" groups="sale.group_discount_per_so_line">
+                                  <span t-field="l.discount"/>
+                                </td>
+                                <td class="text-right">
+                                  <span t-esc="', '.join(map(lambda x: x.name, l.invoice_line_tax_id))"/>
+                                </td>
+                                <td class="text-right">
+                                  <span t-field="l.price_subtotal" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="row">
+                            <div class="col-xs-4 pull-right">
+                              <table class="table table-condensed">
+                                <tr class="border-black">
+                                  <td>
+                                    <strong>Total Without Taxes</strong>
+                                  </td>
+                                  <td class="text-right">
+                                    <span t-field="o.amount_untaxed" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Taxes</td>
+                                  <td class="text-right">
+                                    <span t-field="o.amount_tax" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/>
+                                  </td>
+                                </tr>
+                                <tr class="border-black">
+                                  <td>
+                                    <strong>Total</strong>
+                                  </td>
+                                  <td class="text-right">
+                                    <span t-field="o.amount_total" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="row" t-if="o.tax_line">
+                            <div class="col-xs-6">
+                              <div>
+                                <strong>Amount in words :</strong>
+                              </div>
+                              <div class="row mt32 mb32" style="padding-left: 89px;">
+                                <div class="col-xs-2">
+                                  <div id="detail_11" style="padding-top: 10px; width: 100px;">
+                                    <strong>Name :</strong>
+                                  </div>
+                                  <div id="detail_22" style="padding-top: 10px; width: 100px;">
+                                    <strong>Designation :</strong>
+                                  </div>
+                                  <div id="detail_33" style="padding-top: 10px; width: 100px;">
+                                    <strong>Signature :</strong>
+                                  </div>
+                                </div>
+                                <div class="col-xs-2" style="margin-left: 45px; width:200px;padding-top: 10px;">
+                                  <div id="detail_34">
+                                    <p>Zafar Malik</p>
+                                  </div>
+                                  <div id="detail_44" style="padding-top: 1px;">
+                                    <p>Manager Finance</p>
+                                  </div>
+                                  <div id="detail_48" style="padding-top: 1px;">
+                                    <p>_____________________</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <!--<table class="table table-condensed">-->
+                              <!--  <thead>-->
+                              <!--    <tr>-->
+                              <!--      <th>Tax</th>-->
+                              <!--      <th class="text-right">Base</th>-->
+                              <!--      <th class="text-right">Amount</th>-->
+                              <!--    </tr>-->
+                              <!--  </thead>-->
+                              <!--  <tbody>-->
+                              <!--    <tr t-foreach="o.tax_line" t-as="t">-->
+                              <!--      <td>-->
+                              <!--        <span t-field="t.name"/>-->
+                              <!--      </td>-->
+                              <!--      <td class="text-right">-->
+                              <!--        <span t-field="t.base" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/>-->
+                              <!--      </td>-->
+                              <!--      <td class="text-right">-->
+                              <!--        <span t-field="t.amount" t-field-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: &quot;o.currency_id&quot;}"/>-->
+                              <!--      </td>-->
+                              <!--    </tr>-->
+                              <!--  </tbody>-->
+                              <!--</table>-->
+                            </div>
+                            <div class="col-xs-6">
+                              <div>
+                                <img src="/latitude_report/static/img/lati_img.png" style="width: 212px;margin-left: 134px;"/>
+                              </div>
+                            </div>
+                          </div>
+                          <p t-if="o.comment">
+                            <strong>Comment:</strong>
+                            <span t-field="o.comment"/>
+                          </p>
+                          <p t-if="o.payment_term.note">
+                            <strong>Payment Term:</strong>
+                            <span t-field="o.payment_term.note"/>
+                          </p>
+                          <p t-if="o.fiscal_position.note">
+                            <strong>Fiscal Position Remark:</strong>
+                            <span t-field="o.fiscal_position.note"/>
+                          </p>
+                        </div>
+                    </t>
+                </t>    
+            </t>
+        </template>
+    </data>
+</openerp>

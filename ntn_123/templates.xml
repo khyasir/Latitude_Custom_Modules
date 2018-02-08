@@ -1,0 +1,18 @@
+<openerp>
+    <data>
+        <record id="ntn_form_view" model="ir.ui.view">
+            <field name="name">ntn_form_view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='website']" position="after">
+                    <field name="xxntn"/>
+                    <field name="xxpntn"/>
+                    <field name="xxcnic"/>
+                    <field name="xxstrn"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
